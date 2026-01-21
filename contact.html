@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+</head>
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        background: #f4f6f8;
+        color: #333;
+        
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(233, 219, 219);
+        border-radius: 1rem;
+        width: 15rem;
+        background: linear-gradient(135deg, #4a9bbf, #3cb371);
+        padding: 2rem;
+        margin: 5rem;
+        transition: all 0.9s  ease;
+    }
+    .container:hover{
+        transform: scale(1.2);
+        cursor: pointer;
+        box-shadow: 0px 4px 12px rgb(112, 103, 103) ;
+    }
+    .container h4{
+        color: white;
+        border: 1px solid ;
+        border: none;
+        border-radius: 5rem;
+        padding: 1rem;
+        padding-left: 5rem;
+        width: 10rem;
+        background-color: rgb(91, 91, 255);
+        animation: color 3s linear infinite;
+    }
+    @keyframes color{
+        0%{
+            background-color: green;
+        }
+          50%{
+            background-color: rgb(138, 138, 23);
+        }
+          100%{
+            background-color: rgb(129, 22, 22);
+        }
+    }
+    .container input{
+        display: flex;
+        border-radius: 1rem;
+        padding: 1rem;
+        width: 15rem;
+
+    }
+    .container p a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        cursor: pointer;
+
+    }
+    .bouton {
+        border: 1px solid;
+        border-radius: 1rem;
+        border: none;
+        padding: 0.5rem;
+        width: 10rem;
+        background-color: rgb(247, 197, 123);
+        cursor: pointer;
+        margin-left: 4rem;
+    }
+    .bouton:hover{
+        background-color: rgb(61, 43, 104);
+        color: aliceblue;
+    }
+   
+</style>
+<body>
+    <audio autoplay="autoplay" preload="auto" 
+    src="Lil Durk - All My Life (Lyrics) ft. J. Cole_1718278835767.mp3"></audio>
+    <div class="container">
+
+        <h4>Connexion</h4>
+        <form action="">
+            
+            <input type="text" placeholder="E-mail ou numero de telephone">
+            <br>
+            <input type="password" placeholder="Mots de passe">
+            <p>
+                <a href="">Avez-vous déjà un compte?</a>
+            <p>
+            <button class="bouton">Se connecter</button>
+        </form>
+        <p>@copyright2025Fhael.</p>
+    </div>
+    
+</body>
+</html>

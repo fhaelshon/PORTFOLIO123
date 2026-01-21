@@ -1,0 +1,753 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correction Mon Portfolio Professionnel</title>
+<style>
+/* ================= GLOBAL ================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background: #f4f6f8;
+    color: #333;
+}
+
+/* ================= HEADER ================= */
+header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: linear-gradient(50deg, rgb(68, 153, 187), rgb(47, 173, 47));
+    padding: 15px 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: white; /* Placeholder visuel */
+    display: inline-block;
+}
+.logo span{
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+.navigation{
+    display: flex;
+    gap: 40px;
+}
+.navigation a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+.navigation a::after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background: gold;
+    left: 0;
+    bottom: -5px;
+    transition: 0.4s;
+}
+.navigation a:hover::after{
+    width: 100%;
+}
+
+/* ================= SECTION I (ACCUEIL) ================= */
+.sectionI{
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e3f2fd; /* léger fond professionnel */
+}
+.sectionI .text{
+    text-align: center;
+    animation: fadeIn 2s ease;
+}
+.sectionI h1{
+    font-size: 48px;
+    color: rgb(68, 153, 187);
+}
+.sectionI p{
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(47, 173, 47);
+}
+
+/* ================= SECTION II (PRESENTATION) ================= */
+.sectionII{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+    margin: 40px 20px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    animation: slideUp 1.5s ease;
+}
+.sectionII img{
+    width: 250px;
+    border-radius: 15px;
+    background-color: #ccc; /* Placeholder visuel */
+    height: 250px;
+    object-fit: cover;
+}
+.sectionII img:hover{
+    transform: scale(1.05);
+    transition: transform 0.5s;
+}
+.sectionII .left{
+    max-width: 400px;
+    text-align: center;
+}
+.sectionII h1{
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+/* ================= SECTION III (PROJETS) ================= */
+.sectionIII{
+    margin: 40px 20px;
+    padding: 30px;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.sectionIII h1{
+    text-align: center;
+    margin-bottom: 25px;
+    text-decoration: underline;
+}
+.projets-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.projet-item{
+    width: 220px;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.4s, box-shadow 0.4s;
+    opacity: 1000;
+    transform: translateY(8px);
+}
+.projet-item img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    background-color: #ddd; /* Placeholder visuel */
+}
+.projet-item p{
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+.projet-item:hover{
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/* ================= SECTION CONTACT ================= */
+.contact{
+    display: flex;
+    justify-content: center;
+    margin: 50px 20px;
+}
+.contact-container{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 25px;
+    max-width: 900px;
+    background: linear-gradient(135deg, #4a9bbf, #3cb371);
+    border-radius: 20px;
+    border: 3px solid white;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    color: white;
+    transition: transform 0.5s;
+}
+.contact-container:hover{
+    transform: scale(1.03);
+}
+.contact-image img{
+    width: 220px;
+    height: 240px;
+    border-radius: 15px;
+    background-color: #ccc; /* Placeholder visuel */
+}
+.contact-text h2{
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+.contact-text p{
+    line-height: 1.6;
+    font-size: 16px;
+}
+.contact-buttons{
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.btn{
+    padding: 12px 22px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: all 0.4s ease;
+    display: inline-block;
+}
+/* WhatsApp */
+.btn.whatsapp{
+    background: #25D366;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+.btn.whatsapp:hover{
+    background: #1ebe5d;
+    transform: translateY(-4px);
+}
+/* Inscrit */
+.btn.inscrit{
+    background: white;
+    color: #333;
+    border: 2px solid #fff;
+}
+.btn.inscrit:hover{
+    background: gold;
+    color: black;
+    transform: scale(1.1);
+}
+/* <!-- ================= ANIMATIONFHAEL ================= --> */
+.container {
+        
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      text-align: center;
+
+    }
+
+    .box {
+      width: 180px;
+      height: 30px;
+      padding: 5px 5px;
+      color: white;
+      background: white;
+      border-radius: 6px;
+      animation: bounce 1.2s infinite ease-in-out;
+     
+    }
+
+    /* 🎨 nth-child pour modifier chaque élément */
+    .box:nth-child(1) {
+      animation-delay: 0s;
+      background: #64b6da;
+    }
+
+    .box:nth-child(2) {
+      animation-delay: 0.1s;
+      background: #53c09c;
+    }
+
+    .box:nth-child(3) {
+      animation-delay: 0.2s;
+      background: #02a74c;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+      }
+      50% {
+        transform: translateY(-30px);
+        opacity: 1;
+      }
+    }
+
+/* ================= FOOTER ================= */
+footer{
+    background: rgb(68, 153, 187);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+footer p{
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.social-icons{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.social-icons a{
+    color: white;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.social-icons a:hover{
+    color: gold;
+    transform: scale(1.2);
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+@keyframes slideUp{
+    from{ transform: translateY(50px); opacity: 0; }
+    to{ transform: translateY(0); opacity: 1; }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px){
+    .sectionII, .contact-container{
+        flex-direction: column;
+        text-align: center;
+    }
+    .contact-image, .sectionII img, .projet-item img{
+        width: 180px;
+        height: auto;
+    }
+    .contact-buttons{
+        justify-content: center;
+    }
+}
+/* ================= MENU BOUTON  ================= */
+/* Checkbox cachée */
+#menu-toggle {
+  display: none;
+}
+.a{
+    width: 40px;
+    border: 1.5px solid black;
+    margin-bottom: 8px;
+}
+.aa{
+    width: 40px;
+    border: 1.5px solid black;
+    margin-bottom: 4px;
+}
+.aaa{
+    width: 40px;
+    border: 1.5px solid black;
+   
+}
+/* Bouton menu */
+.menu-btn {
+  position: fixed;
+  background: transparent;
+  color: white;
+  size: 150px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+/* Le bouton disparaît après clic */
+#menu-toggle:checked + .menu-btn {
+  opacity: 0;
+  
+}
+/* Menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 250px;
+  height: 250px;
+  background: transparent;
+  padding-top: 20px;
+  transition: left 0.1s ease;
+}
+
+/* Menu visible après clic */
+#menu-toggle:checked ~ .menu {
+    left: -20px;
+}
+.menu-btn:hover{
+    width: 50px;
+
+}
+
+/* Liens du menu */
+.menu a {
+  display: block;
+  padding: 10px 12px;
+  color: white;
+  width: 130px;
+  text-decoration: none;
+  background: linear-gradient(50deg, rgb(68, 153, 187), rgb(47, 173, 40));
+  border-radius: 5px;
+
+}
+
+.menu a:hover {
+  background: #666;
+}/* Checkbox cachée */
+#menu-toggle {
+  display: none;
+}
+.a{
+    width: 40px;
+    border: 1.5px solid black;
+    margin-bottom: 8px;
+}
+.aa{
+    width: 40px;
+    border: 1.5px solid black;
+    margin-bottom: 4px;
+}
+.aaa{
+    width: 40px;
+    border: 1.5px solid black;
+   
+}
+/* Bouton menu */
+.menu-btn {
+  position: relative;
+    top: 64px;
+    left: -1px;
+  background: transparent;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+/* Le bouton disparaît après clic */
+#menu-toggle:checked + .menu-btn {
+  opacity: 0;
+  
+}
+/* Menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 250px;
+  height: 250px;
+  background: transparent;
+  padding-top: 20px;
+  transition: left 0.1s ease;
+}
+
+/* Menu visible après clic */
+#menu-toggle:checked ~ .menu {
+    left: -20px;
+}
+.menu-btn:hover{
+    width: 50px;
+
+}
+
+/* Liens du menu */
+.menu a {
+  display: block;
+  padding: 10px 12px;
+  color: white;
+  width: 130px;
+  text-decoration: none;
+  background: linear-gradient(50deg, rgb(68, 153, 187), rgb(47, 173, 40));
+  border-radius: 5px;
+
+}
+
+.menu a:hover {
+  background: #666;
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+    <nav>
+        <div class="logo">
+            <div></div> <!-- Placeholder logo -->
+            <span>Portfolio</span>
+        </div>
+        <div class="navigation">
+            <a href="#Accueil">Accueil</a>
+            <a href="#Presentation">Présentation</a>
+            <a href="#Projet">Projets</a>
+            <a href="#Contact">Contact</a>
+        </div>
+    </nav>
+</header>
+<style>
+    /* Checkbox cachée */
+#menu-toggle {
+  display: none;
+}
+.a{
+    width: 40px;
+    border: 1.5px solid black;
+    margin-bottom: 8px;
+}
+.aa{
+    width: 40px;
+    border: 1.5px solid black;
+    margin-bottom: 4px;
+}
+.aaa{
+    width: 40px;
+    border: 1.5px solid black;
+   
+}
+/* Bouton menu */
+.menu-btn {
+  position: fixed;
+  background: transparent;
+  color: white;
+  size: 150px;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: opacity 0.3s;
+  z-index: 1000;
+}
+
+/* Le bouton disparaît après clic */
+#menu-toggle:checked + .menu-btn {
+  opacity: 0;
+  
+}
+/* Menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -200px;
+  width: 250px;
+  height: 250px;
+  background: transparent;
+  padding-top: 20px;
+  transition: left 0.1s ease;
+}
+
+/* Menu visible après clic */
+#menu-toggle:checked ~ .menu {
+    left: -20px;
+}
+.menu-btn:hover{
+    width: 50px;
+
+}
+
+/* Liens du menu */
+.menu a {
+  display: block;
+  padding: 10px 12px;
+  color: white;
+  width: 130px;
+  text-decoration: none;
+  background: linear-gradient(50deg, rgb(68, 153, 187), rgb(47, 173, 40));
+  border-radius: 5px;
+
+}
+
+.menu a:hover {
+  background: #666;
+}
+</style>
+<!-- ================= SECTION I ================= -->
+<section class="sectionI" id="Accueil">
+    <!-- Checkbox -->
+    <input type="checkbox" id="menu-toggle">
+
+    <!-- Bouton -->
+    <label for="menu-toggle" class="menu-btn" title="Menu">
+        <div class="a"></div>
+        <div class="a"></div>
+        <div class="a"></div>
+    </label>
+
+    <!-- Menu déroulant -->
+    <nav class="menu">
+        <a href="#Accueil">Accueil</a>
+        <a href="#Presentation">Presentation</a>
+        <a href="#Projet">Projets</a>
+        <a href="#Contact">Contact</a>
+        <a href="Services.html">Services</a>
+    </nav>
+    <div class="text">
+        <h1>Bienvenue !</h1>
+        <p>Soyez les bienvenus sur mon site portfolio</p>
+    </div>
+</section>
+
+<!-- ================= SECTION II (PRESENTATION) ================= -->
+<section class="sectionII" id="Presentation">
+    
+    <div style="width:250px;height:250px;background:#ccc;border-radius:15px;">
+        <img src="protect.png" alt="">
+    </div> <!-- Placeholder image -->
+    <div class="left">
+        <h1>Présentation</h1>
+        <p>
+            Je suis un développeur passionné par le développement web moderne.<br>
+            J’aime créer des sites performants et élégants.<br>
+            Chaque projet est une nouvelle aventure créative.<br>
+            Je travaille avec HTML, CSS et JavaScript.<br>
+            Mon objectif est de satisfaire chaque client.<br>
+            N’hésitez pas à me contacter pour échanger.<br>
+            Ensemble, donnons vie à votre projet !
+        </p>
+    </div>
+</section>
+
+<!-- ================= SECTION III (PROJETS) ================= -->
+<section class="sectionIII" id="Projet">
+    <h1>Mes projets</h1>
+    <div class="projets-container">
+        <div class="projet-item" data-animate>
+            <div style="height:150px;background:#ddd;">
+                <img src="shoppy.jpg" alt="Site vitrine">
+            </div> <!-- Placeholder -->
+            <p>Site vitrine avec HTML, CSS et animation hover.</p>
+        </div>
+        <div class="projet-item" data-animate>
+            <div style="height:150px;background:#ddd;">
+                <img src="portfolio.jpg" alt="Protfolio">
+            </div>
+            <p>Portfolio personnel avec responsive design.</p>
+        </div>
+        <div class="projet-item" data-animate>
+            <div style="height:150px;background:#ddd;">
+                <img src="e-commerce.png" alt="E-commerce">
+            </div>
+            <p>Projet e-commerce avec interface moderne.</p>
+        </div>
+        <div class="projet-item" data-animate>
+            <div style="height:150px;background:#ddd;">
+                <img src="voyage.jpg" alt="site de Voyage">
+            </div>
+            <p>Landing page avec animations CSS et JavaScript.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SECTION CONTACT ================= -->
+<section class="contact" id="Contact">
+    <div class="contact-container">
+        <div class="contact-image">
+            <img src="téléchargement.jpg" alt="">
+        </div> <!-- Placeholder photo -->
+        <div class="contact-text">
+            <h2>Contactez-moi</h2>
+            <p>
+                Vous avez un projet web ou une idée à concrétiser ?<br>
+                Je suis passionné par le développement web moderne.<br>
+                J’aime créer des sites performants et élégants.<br>
+                Chaque projet est une nouvelle aventure créative.<br>
+                Je travaille avec HTML, CSS et JavaScript.<br>
+                Mon objectif est de satisfaire chaque client.<br>
+                N’hésitez pas à me contacter pour échanger.<br>
+                Ensemble, donnons vie à votre projet !
+            </p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/229XXXXXXXX?text=Bonjour%20!%20Je%20souhaite%20vous%20contacter." target="_blank" class="btn whatsapp">
+                    Me joindre sur WhatsApp
+                </a>
+                <a href="contact.html" class="btn inscrit">
+                    Inscrire
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================= ANIMATIONFHAEL ================= -->
+ <div class="container">
+    <div class="box">FHAEL_SHON</div>
+    <div class="box">PROJET</div>
+    <div class="box">PORTFOLIO</div>
+  </div>
+<!-- ================= FOOTER ================= -->
+<footer>
+    <div class="social-icons">
+        <a href="#" target="_blank">🌐</a>
+        <a href="#" target="_blank">🐦</a>
+        <a href="#" target="_blank">💼</a>
+        <a href="#" target="_blank">📷</a>
+    </div>
+        <div class="liens-icon">
+        <a href=""><img src="facebook_1077041.png" alt="Fcebook" title="Facebook"></a>
+        <a href=""><img src="twitter_1400822.png" alt="Twitter" title="Twitter"></a>
+        <a href=""><img src="instagram_1077042.png" alt="Instagram" title="Instagram"></a>
+        <a href=""><img src="youtube_1077046.png" alt="YouTube" title="YouTube"></a>
+    </div>
+    <p>&copy; 2026 Mon Portfolio. Tous droits réservés.</p>
+    <style>
+        .liens-icon{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0px;
+        }
+        .liens-icon a img{
+            margin:0px 20px;
+            width: 35px;
+            height:35px; 
+            margin-bottom: 15px;
+        }
+    </style>
+</footer>
+
+<script>
+// ================= SCROLL ANIMATION =================
+const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('active');
+        }
+    });
+},{threshold:0.1});
+
+document.querySelectorAll('[data-animate]').forEach(el=>{
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
